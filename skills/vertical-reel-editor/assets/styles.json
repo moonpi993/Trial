@@ -1,0 +1,107 @@
+{
+  "_about": "Visual style menu. Each style = 2 fonts max (one bold, one contrasting), a palette, an FFmpeg grade, and caption CSS. Fonts come from npm @fontsource packages (pkg + file) so renders work offline; 'google' is the Google Fonts family string used only for HTML previews (storyboard, style menu).",
+  "styles": {
+    "sleepy-diary": {
+      "name": "Sleepy Diary",
+      "mood": "Cozy, deadpan, warm. Handwritten notes over soft matte footage.",
+      "best_for": "Sleepy or lazy pets, 'how to' routines, slow cute moments",
+      "pacing": "Calm hook, 0.7-0.9s montage cuts, long quiet holds at the end",
+      "palette": {"light": "#FFEDAC", "dark": "#3E2723", "accent": "#C8843E"},
+      "fonts": {
+        "bold": {"family": "Bricolage Grotesque", "pkg": "bricolage-grotesque", "file": "bricolage-grotesque-latin-800-normal.woff2", "weight": 800, "google": "Bricolage+Grotesque:opsz,wght@12..96,800"},
+        "accent": {"family": "Caveat", "pkg": "caveat", "file": "caveat-latin-700-normal.woff2", "weight": 700, "google": "Caveat:wght@700"}
+      },
+      "grade": "curves=all='0/0.06 0.45/0.53 1/0.97',eq=contrast=0.95:saturation=0.92,colorbalance=rs=-0.02:bs=0.03:rm=0.05:gm=0.01:bm=-0.04:rh=0.03:bh=-0.04,vignette=PI/6",
+      "label_css": "color: var(--dark); text-transform: uppercase; letter-spacing: .07em; font-family: var(--bold); font-weight: 800; text-shadow: 0 0 3px rgba(255,237,172,1), 0 0 12px rgba(255,237,172,.95), 0 0 26px rgba(255,237,172,.8), 0 0 48px rgba(255,237,172,.55);",
+      "line_css": "color: var(--light); font-family: var(--accent); font-weight: 700; text-shadow: 0 4px 22px rgba(62,39,35,.6), 0 1px 3px rgba(62,39,35,.5);",
+      "line_scale": 1.0,
+      "scrim": "rgba(62,39,35,.5)",
+      "fade_to": "#3E2723"
+    },
+    "editorial-script": {
+      "name": "Editorial Script",
+      "mood": "Clean, bright, boutique. A big script word over neutral, airy footage.",
+      "best_for": "Recipes, product or treat prep, gifts, aesthetic home moments",
+      "pacing": "Title held across 3-4 cuts, 0.4-0.8s cuts on hand actions, 1.5s holds at the end",
+      "palette": {"light": "#FFFFFF", "dark": "#2B2B28", "accent": "#C9B79C"},
+      "fonts": {
+        "bold": {"family": "Jost", "pkg": "jost", "file": "jost-latin-600-normal.woff2", "weight": 600, "google": "Jost:wght@600"},
+        "accent": {"family": "Pinyon Script", "pkg": "pinyon-script", "file": "pinyon-script-latin-400-normal.woff2", "weight": 400, "google": "Pinyon+Script"}
+      },
+      "grade": "curves=all='0/0.02 0.5/0.56 1/1',eq=brightness=0.03:contrast=1.04:saturation=0.95,colorbalance=rh=-0.02:bh=0.02",
+      "label_css": "color: var(--light); text-transform: uppercase; letter-spacing: .22em; font-family: var(--bold); font-weight: 600; font-size: .62em; text-shadow: 0 1px 10px rgba(0,0,0,.45);",
+      "line_css": "color: var(--light); font-family: var(--accent); font-weight: 400; text-shadow: 0 2px 14px rgba(0,0,0,.45);",
+      "line_scale": 1.15,
+      "scrim": "rgba(0,0,0,.28)",
+      "fade_to": "#FFFFFF"
+    },
+    "soft-film": {
+      "name": "Soft Film",
+      "mood": "Nostalgic, cinematic. Teal shadows, orange fur, faded blacks.",
+      "best_for": "Firsts (first rain, first walk), outdoor moments, emotional stories",
+      "pacing": "Slower: 1-2s shots, gentle push-ins, one line of text per beat",
+      "palette": {"light": "#F6E7C8", "dark": "#2F2A26", "accent": "#D9A066"},
+      "fonts": {
+        "bold": {"family": "Archivo", "pkg": "archivo", "file": "archivo-latin-800-normal.woff2", "weight": 800, "google": "Archivo:wght@800"},
+        "accent": {"family": "Fraunces", "pkg": "fraunces", "file": "fraunces-latin-600-italic.woff2", "weight": 600, "style": "italic", "google": "Fraunces:ital,wght@1,600"}
+      },
+      "grade": "curves=all='0/0.07 0.5/0.52 1/0.95',eq=contrast=0.93:saturation=0.88,colorbalance=rs=-0.05:bs=0.06:rm=0.03:rh=0.06:bh=-0.05,vignette=PI/5",
+      "label_css": "color: var(--dark); text-transform: uppercase; letter-spacing: .08em; font-family: var(--bold); font-weight: 800; text-shadow: 0 0 10px rgba(246,231,200,.9), 0 0 30px rgba(246,231,200,.6);",
+      "line_css": "color: var(--light); font-family: var(--accent); font-style: italic; font-weight: 600; text-shadow: 0 3px 18px rgba(47,42,38,.65);",
+      "line_scale": 0.85,
+      "scrim": "rgba(47,42,38,.45)",
+      "fade_to": "#2F2A26"
+    },
+    "bold-meme": {
+      "name": "Bold Meme",
+      "mood": "Loud and punchy. Big outlined captions, saturated color, fast cuts.",
+      "best_for": "Zoomies, chaos, fails, reactions, anything with a punchline",
+      "pacing": "Fast: 0.3-0.6s cuts, speed ramps, a hard stop before the punchline",
+      "palette": {"light": "#FFFFFF", "dark": "#111111", "accent": "#FFD23F"},
+      "fonts": {
+        "bold": {"family": "Anton", "pkg": "anton", "file": "anton-latin-400-normal.woff2", "weight": 400, "google": "Anton"},
+        "accent": {"family": "Permanent Marker", "pkg": "permanent-marker", "file": "permanent-marker-latin-400-normal.woff2", "weight": 400, "google": "Permanent+Marker"}
+      },
+      "grade": "eq=contrast=1.12:saturation=1.25:brightness=0.02,unsharp=5:5:0.5",
+      "label_css": "color: var(--accent-c); text-transform: uppercase; letter-spacing: .03em; font-family: var(--bold); font-weight: 400; -webkit-text-stroke: 3px #111; paint-order: stroke fill;",
+      "line_css": "color: var(--light); font-family: var(--accent); font-weight: 400; -webkit-text-stroke: 4px #111; paint-order: stroke fill; text-shadow: 0 6px 0 rgba(0,0,0,.35);",
+      "line_scale": 0.8,
+      "scrim": "",
+      "fade_to": "#111111"
+    },
+    "quiet-mono": {
+      "name": "Quiet Mono",
+      "mood": "Minimal and calm. Small lowercase type, cool desaturated footage, lots of air.",
+      "best_for": "Daily routines, ASMR, morning or night rituals, 'a day with' diaries",
+      "pacing": "Even 1-1.5s cuts, no speed ramps, timestamps or counters as labels",
+      "palette": {"light": "#F2F2EF", "dark": "#1E1F1D", "accent": "#9FB3A8"},
+      "fonts": {
+        "bold": {"family": "DM Sans", "pkg": "dm-sans", "file": "dm-sans-latin-600-normal.woff2", "weight": 600, "google": "DM+Sans:wght@600"},
+        "accent": {"family": "DM Mono", "pkg": "dm-mono", "file": "dm-mono-latin-400-normal.woff2", "weight": 400, "google": "DM+Mono"}
+      },
+      "grade": "eq=saturation=0.45:contrast=1.02,colorbalance=bs=0.04:bm=0.03:rh=-0.02,curves=all='0/0.04 1/0.97'",
+      "label_css": "color: var(--accent-c); text-transform: lowercase; letter-spacing: .12em; font-family: var(--accent); font-weight: 400; font-size: .7em; text-shadow: 0 1px 8px rgba(0,0,0,.4);",
+      "line_css": "color: var(--light); text-transform: lowercase; font-family: var(--bold); font-weight: 600; letter-spacing: -.01em; text-shadow: 0 2px 14px rgba(0,0,0,.4);",
+      "line_scale": 0.55,
+      "scrim": "rgba(30,31,29,.35)",
+      "fade_to": "#1E1F1D"
+    },
+    "pastel-pop": {
+      "name": "Pastel Pop",
+      "mood": "Sweet, bright and bubbly. Rounded type on candy colors.",
+      "best_for": "Kittens and puppies, birthdays, toys, playful 'meet my pet' intros",
+      "pacing": "Bouncy: 0.5-0.8s cuts, pop-in text, quick zoom punches",
+      "palette": {"light": "#FFF4F8", "dark": "#7A3E65", "accent": "#FF8FB8"},
+      "fonts": {
+        "bold": {"family": "Fredoka", "pkg": "fredoka", "file": "fredoka-latin-600-normal.woff2", "weight": 600, "google": "Fredoka:wght@600"},
+        "accent": {"family": "Gaegu", "pkg": "gaegu", "file": "gaegu-latin-700-normal.woff2", "weight": 700, "google": "Gaegu:wght@700"}
+      },
+      "grade": "curves=all='0/0.08 0.5/0.6 1/1',eq=brightness=0.05:saturation=1.08:contrast=0.92,colorbalance=rh=0.03:bh=0.04:gs=0.02",
+      "label_css": "color: var(--light); text-transform: uppercase; letter-spacing: .06em; font-family: var(--bold); font-weight: 600; text-shadow: 0 0 0 transparent, 0 4px 0 var(--accent-c), 0 6px 18px rgba(122,62,101,.45);",
+      "line_css": "color: var(--light); font-family: var(--accent); font-weight: 700; text-shadow: 0 3px 0 var(--dark), 0 6px 20px rgba(122,62,101,.5);",
+      "line_scale": 1.0,
+      "scrim": "rgba(122,62,101,.25)",
+      "fade_to": "#FFF4F8"
+    }
+  }
+}
