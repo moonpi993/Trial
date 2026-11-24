@@ -125,7 +125,7 @@ python3 -I scripts/render_shots.py reel.json WORK/r --size 1080x1920      # or 2
 python3 -I scripts/gen_composition.py reel.json WORK/r WORK/proj
 cd WORK/proj && npx -y hyperframes check            # fix errors; read the contrast/overlap warnings
 npx -y hyperframes snapshot --at <one time per section>   # LOOK at the contact sheet
-npx -y hyperframes render -o renders/out.mp4 --fps 25 --quiet [--video-bitrate 32M for 4K]
+npx -y hyperframes render -o renders/out.mp4 --fps 25 --video-frame-format png --quiet [--video-bitrate 45M for 4K]
 # c. sound
 python3 -I scripts/mix_sfx.py WORK/r/cues.json WORK/proj/renders/out.mp4 FINAL.mp4
 ```
@@ -149,7 +149,7 @@ Send the final file with the file-sending tool, and say:
 - That music is meant to be added in the app, with the original sound kept at about 50–70% so the SFX still come through.
 - For 4K from landscape phone footage: the text is rendered at true 4K, but the footage is upscaled from about 1215×2160 crops, and Instagram shows Reels at 1080 wide anyway.
 
-If the work is in a git repo, commit the final MP4 when asked or when a hook requires it. Keep each file under 100 MB, so use `--video-bitrate 32M` for 4K at about 20s. Give each new cut a new filename, so earlier versions stay.
+If the work is in a git repo, commit the final MP4 when asked or when a hook requires it. Keep each file under 100 MB: about 45M for a 16s 4K video, 35M for 20s. Give each new cut a new filename, so earlier versions stay.
 
 Revisions are cheap if you keep the plan as the source of truth: edit `reel.json`, then rerun `render_shots.py`. Unchanged shots come from the cache and only the join and grade rerun. Then rerun `gen_composition.py`, the check, a snapshot, the render and `mix_sfx.py`. Captions and SFX use time references like `"08+0.12"` tied to shot IDs, so they follow the new cuts automatically. When someone says "remove step 3", also fix anything that depended on it, such as a replay montage that reused its clip.
 
@@ -163,6 +163,9 @@ Revisions are cheap if you keep the plan as the source of truth: edit `reel.json
 - They cut duplicate-feeling shots when trimming, before shortening the good ones.
 - They wanted honest answers about 4K, network blocks and what you could and couldn't watch.
 - Music is added by the user in the app, and the sound effects are made with FFmpeg, so nothing in the file needs a license.
+- "Pale" or "washed out" means the grade lifts blacks or cuts contrast and color too much. Keep blacks near 0, contrast at 1.0 or above, and saturation at 1.0 or above for fur.
+- "Everything except the face is blurry" means too much upscaling. Keep punch-ins at 1.7x or less on 4K sources, render HyperFrames with `--video-frame-format png` (the JPG default smears fur), keep caption scrims light, and add `cas` sharpening in the grade.
+- Pop-ups such as beeps should feel unexpected: a different spot and tilt each time, never lined up along the edges and never on the face. Check every shot they cross in a snapshot.
 
 ## Files
 
