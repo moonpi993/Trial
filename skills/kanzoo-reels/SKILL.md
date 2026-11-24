@@ -1,6 +1,6 @@
 ---
 name: kanzoo-reels
-description: Kanzoo's locked brand look for Instagram. Reels and covers/thumbnails share one type system copied from the user's official Monday thumbnail: TeX Gyre Chorus in espresso plus wide-spaced Inter Medium capitals in mocha, each with a soft cream glow, on soft natural coffee light. No white, no bars, no dark fades. Includes the visual style menu. Use this whenever the user mentions Kanzoo, their kitten, the cat account, a new Kanzoo Reel/post/cover/thumbnail, "my style", "same look as Monday", or uploads new kitten clips to edit, even if they don't name the skill.
+description: Kanzoo's locked brand look for Instagram. Reels and covers/thumbnails share one type system copied from the user's official Monday thumbnail (TeX Gyre Chorus in espresso plus wide-spaced Inter Medium capitals in mocha, each with a soft cream glow, on soft natural coffee light). No white, no bars, no dark fades. Includes the visual style menu. Use this whenever the user mentions Kanzoo, their kitten, the cat account, a new Kanzoo Reel/post/cover/thumbnail, "my style", "same look as Monday", or uploads new kitten clips to edit, even if they don't name the skill.
 compatibility: Needs ffmpeg/ffprobe, Node with npx (HyperFrames runs as `npx hyperframes`), Python 3 and Playwright's Chromium. All fonts are bundled in assets/fonts.
 ---
 
