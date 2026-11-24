@@ -4,7 +4,7 @@ Every style is an entry in `assets/styles.json`, with two fonts (one bold, one c
 
 | key | name | fonts (bold + accent) | grade | suits |
 |---|---|---|---|---|
-| kanzoo-brand | Kanzoo Brand | Inter 600 + TeX Gyre Pagella italic (bundled in assets/fonts) | warm, calms blue/cyan and green, keeps oranges rich, deep blacks | every post on the account, so the grid matches |
+| kanzoo-brand | Kanzoo Brand | Inter 600 + TeX Gyre Pagella italic (bundled in assets/fonts) | coffee: greens and blues neutralized, espresso shadows, cream highlights, caramel fur kept rich | every post on the account, so the grid matches |
 | sleepy-diary | Sleepy Diary | Bricolage Grotesque 800 + Caveat 700 | rich golden: deep blacks, warm mids, light sharpening | sleepy pets, how-to routines, deadpan humor |
 | editorial-script | Editorial Script | Jost 600 + Pinyon Script | bright, clean, neutral | recipes, treat or product prep, gifts |
 | soft-film | Soft Film | Archivo 800 + Fraunces 600 italic | teal shadows, orange skin and fur, faded | firsts, outdoors, emotional stories |

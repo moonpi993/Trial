@@ -3,13 +3,21 @@
   "styles": {
     "kanzoo-brand": {
       "name": "Kanzoo Brand",
-      "mood": "Quiet and golden. Small spaced capitals and one Pagella italic line over warm, cohesive footage. Built for a matching grid.",
+      "mood": "Coffee tones: cream, latte, caramel, mocha, espresso. Quiet Inter caps and one Pagella italic line over warm, cohesive footage.",
       "best_for": "Every Kanzoo post: Reels, covers and photos, so the profile grid reads as one series",
       "pacing": "Calm: 0.8-1.2s cuts, a single punchline beat, text on screen only when it adds something",
       "palette": {
-        "light": "#F4EDE1",
-        "dark": "#3E2723",
-        "accent": "#C98B4E"
+        "light": "#F8F2EB",
+        "dark": "#321D12",
+        "accent": "#A56B4D",
+        "swatches": {
+          "Cream": "#F8F2EB",
+          "Light beige": "#E3CEC1",
+          "Latte": "#C69A77",
+          "Caramel": "#A56B4D",
+          "Mocha": "#6A4431",
+          "Espresso": "#321D12"
+        }
       },
       "fonts": {
         "bold": {
@@ -27,12 +35,12 @@
           "style": "italic"
         }
       },
-      "grade": "huesaturation=colors=c+b:saturation=-0.75,huesaturation=colors=g:saturation=-0.5,huesaturation=colors=r+y:saturation=0.18,curves=all='0/0.01 0.25/0.23 0.5/0.52 0.8/0.83 1/0.98',eq=contrast=1.06:saturation=0.97,colorbalance=rm=0.04:gm=0.01:bm=-0.04:rh=0.02:bh=-0.03,cas=0.4,vignette=PI/9",
-      "label_css": "color: var(--light); text-transform: uppercase; letter-spacing: .26em; font-family: var(--bold); font-weight: 600; font-size: .62em; text-shadow: 0 1px 12px rgba(62,39,35,.55), 0 0 2px rgba(62,39,35,.35);",
-      "line_css": "color: var(--light); font-family: var(--accent); font-style: italic; font-weight: 400; letter-spacing: -.005em; text-shadow: 0 2px 16px rgba(62,39,35,.55);",
+      "grade": "huesaturation=colors=c+b:saturation=-0.85,huesaturation=colors=g:saturation=-0.85,huesaturation=colors=m:saturation=-0.4,huesaturation=colors=r+y:saturation=0.05,curves=all='0/0.012 0.25/0.235 0.5/0.52 0.8/0.84 1/0.97',eq=contrast=1.05:saturation=0.9,colorbalance=rs=0.05:gs=0.015:bs=-0.04:rm=0.04:gm=0.01:bm=-0.05:rh=0.02:gh=0.005:bh=-0.035,cas=0.4,vignette=PI/9",
+      "label_css": "color: var(--light); text-transform: uppercase; letter-spacing: .26em; font-family: var(--bold); font-weight: 600; font-size: .62em; text-shadow: 0 1px 12px rgba(50,29,18,.55), 0 0 2px rgba(50,29,18,.35);",
+      "line_css": "color: var(--light); font-family: var(--accent); font-style: italic; font-weight: 400; letter-spacing: -.005em; text-shadow: 0 2px 16px rgba(50,29,18,.55);",
       "line_scale": 0.72,
-      "scrim": "rgba(62,39,35,.22)",
-      "fade_to": "#3E2723"
+      "scrim": "rgba(50,29,18,.22)",
+      "fade_to": "#321D12"
     },
     "sleepy-diary": {
       "name": "Sleepy Diary",

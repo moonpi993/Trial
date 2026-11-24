@@ -86,7 +86,7 @@ Publish the HTML as an artifact and ask which style they want. Put a clear, char
 
 | Style | What it is |
 |---|---|
-| kanzoo-brand | **Default for Kanzoo posts.** Inter caps plus Pagella italic, cream/caramel/espresso, warm grade that calms blues and greens so every post matches the grid. |
+| kanzoo-brand | **Default for Kanzoo posts.** Coffee palette (cream, light beige, latte, caramel, mocha, espresso), Inter caps plus Pagella italic, a grade that pulls greens and blues into coffee tones so every post matches the grid. |
 | sleepy-diary | Butter and espresso, Bricolage Grotesque plus Caveat handwriting, rich golden grade. |
 | editorial-script | Bright neutral grade, Jost caps plus a Pinyon Script title word. |
 | soft-film | Teal-orange faded grade, Archivo plus italic Fraunces. |
