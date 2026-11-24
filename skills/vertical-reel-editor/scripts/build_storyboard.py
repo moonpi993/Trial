@@ -14,7 +14,7 @@ Every frame is the real crop, so the user approves exactly what will be rendered
 """
 import base64, html, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from reelspec import load_spec, load_style, timeline, sections
+from reelspec import load_spec, load_style, timeline, sections, local_font_css
 
 spec_path, thumbs, out = sys.argv[1:4]
 spec = load_spec(spec_path); style = load_style(spec["style"])
@@ -67,12 +67,14 @@ if tc and rows:
 <p class="lede">Fonts: {e(fb["family"])} (bold) and {e(fa["family"])}. Palette: {pal["light"]}, {pal["dark"]}, {pal["accent"]}. Every frame on this page already has the style's color grade.</p></div></section>'''
 
 qs = "".join(f"<li>{e(q)}</li>" for q in sb.get("questions", []))
-gf = "https://fonts.googleapis.com/css2?family=" + fb["google"] + "&family=" + fa["google"] + "&family=DM+Sans:wght@400;500;700&display=swap"
+gf = "https://fonts.googleapis.com/css2?" + "".join(f"family={f['google']}&" for f in (fb, fa) if f.get("google")) + "family=DM+Sans:wght@400;500;700&display=swap"
+local_css = local_font_css(fb, fb["family"]) + local_font_css(fa, fa["family"])
 page = f'''<title>{e(spec.get("title", "Reel"))} Storyboard</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="{gf}">
 <style>
+{local_css}
 /* Layout: intro, reference digest, look card, then one horizontal film strip per section, then open questions */
 :root {{ --l: {pal["light"]}; --d: {pal["dark"]}; --accent-c: {pal["accent"]}; --light: {pal["light"]}; --dark: {pal["dark"]};
   --bg: color-mix(in srgb, var(--l) 92%, var(--d)); --panel: color-mix(in srgb, var(--l) 80%, var(--d)); --ink: var(--d);

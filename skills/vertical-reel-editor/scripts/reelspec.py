@@ -87,3 +87,16 @@ def crop_box(src_w, src_h, zoom, cx, cy, aspect=9 / 16):
     x = min(max(cx * src_w - w / 2, 0), src_w - w)
     y = min(max(cy * src_h - h / 2, 0), src_h - h)
     return int(w) // 2 * 2, int(h) // 2 * 2, int(x), int(y)
+
+
+def local_font_css(font, family):
+    """@font-face with an embedded data URI for fonts bundled in assets/fonts (used by the HTML previews)."""
+    if not font.get("local"):
+        return ""
+    import base64
+    path = os.path.join(HERE, "..", "assets", "fonts", font["file"])
+    ext = font["file"].rsplit(".", 1)[-1]
+    mime, fmt = {"otf": ("font/otf", "opentype"), "ttf": ("font/ttf", "truetype"), "woff": ("font/woff", "woff")}.get(ext, ("font/woff2", "woff2"))
+    data = base64.b64encode(open(path, "rb").read()).decode()
+    return (f'@font-face {{ font-family: "{family}"; src: url(data:{mime};base64,{data}) format("{fmt}"); '
+            f'font-weight: {font.get("weight", 400)}; font-style: {font.get("style", "normal")}; }}')

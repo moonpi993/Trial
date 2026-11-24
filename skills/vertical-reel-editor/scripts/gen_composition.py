@@ -45,7 +45,11 @@ def npm_file(pkg, rel, dest):
 
 for role in ("bold", "accent"):
     f = style["fonts"][role]
-    npm_file(f"@fontsource/{f['pkg']}", f"files/{f['file']}", os.path.join(proj, "assets", "fonts", f["file"]))
+    dest = os.path.join(proj, "assets", "fonts", f["file"])
+    if f.get("local"):   # font file bundled in the skill's assets/fonts (fonts not on npm, e.g. TeX Gyre Pagella)
+        shutil.copy(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "assets", "fonts", f["file"]), dest)
+    else:
+        npm_file(f"@fontsource/{f['pkg']}", f"files/{f['file']}", dest)
 npm_file("gsap@3.15.0", "dist/gsap.min.js", os.path.join(proj, "assets", "gsap.min.js"))
 shutil.copy(os.path.join(work, "base_graded.mp4"), os.path.join(proj, "assets", "base.mp4"))
 
@@ -112,6 +116,7 @@ clip("fadeout", "full fadeout", total - 0.6, 0.6, "", 4)
 js.append(f'tl.to("#fadeout", {{ opacity: 1, duration: 0.55, ease: "power1.in" }}, {r3(total - 0.58)});')
 
 fb, fa = style["fonts"]["bold"], style["fonts"]["accent"]
+fmt = lambda f: {"otf": "opentype", "ttf": "truetype", "woff": "woff"}.get(f["file"].rsplit(".", 1)[-1], "woff2")
 ls = style.get("line_scale", 1)
 html = f'''<!doctype html>
 <html lang="en">
@@ -120,8 +125,8 @@ html = f'''<!doctype html>
     <meta name="viewport" content="width={W}, height={H}" />
     <script src="assets/gsap.min.js"></script>
     <style>
-      @font-face {{ font-family: "ReelBold"; src: url("assets/fonts/{fb['file']}") format("woff2"); font-weight: {fb['weight']}; }}
-      @font-face {{ font-family: "ReelAccent"; src: url("assets/fonts/{fa['file']}") format("woff2"); font-weight: {fa['weight']}; font-style: {fa.get('style', 'normal')}; }}
+      @font-face {{ font-family: "ReelBold"; src: url("assets/fonts/{fb['file']}") format("{fmt(fb)}"); font-weight: {fb['weight']}; }}
+      @font-face {{ font-family: "ReelAccent"; src: url("assets/fonts/{fa['file']}") format("{fmt(fa)}"); font-weight: {fa['weight']}; font-style: {fa.get('style', 'normal')}; }}
       :root {{ --light: {style['palette']['light']}; --dark: {style['palette']['dark']}; --accent-c: {style['palette']['accent']};
               --bold: "ReelBold", sans-serif; --accent: "ReelAccent", cursive; }}
       * {{ margin: 0; padding: 0; box-sizing: border-box; }}

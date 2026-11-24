@@ -8,7 +8,7 @@ mood, what it suits, pacing, fonts and swatches. Publish the HTML as an artifact
 """
 import base64, html, json, os, subprocess, sys, tempfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from reelspec import STYLES_PATH
+from reelspec import STYLES_PATH, local_font_css
 
 args = sys.argv[1:]
 def opt(name, default):
@@ -27,7 +27,8 @@ def graded(frame, grade, key):
                     "-q:v", "3", p], check=True)
     return "data:image/jpeg;base64," + base64.b64encode(open(p, "rb").read()).decode()
 
-families = sorted({s["fonts"][r]["google"] for s in styles.values() for r in ("bold", "accent")})
+families = sorted({s["fonts"][r]["google"] for s in styles.values() for r in ("bold", "accent") if s["fonts"][r].get("google")})
+local_css = "".join(local_font_css(s["fonts"][r], s["fonts"][r]["family"]) for s in styles.values() for r in ("bold", "accent"))
 gfonts = "https://fonts.googleapis.com/css2?" + "&".join(f"family={f}" for f in families + ["DM+Sans:wght@400;500;700"]) + "&display=swap"
 
 cards = []
@@ -60,6 +61,7 @@ page = f'''<title>{e(title)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="{gfonts}">
 <style>
+{local_css}
 /* Layout: intro, then a two-column grid of style cards (phone preview + spec), one column on phones */
 :root {{ --bg: #f3f4f1; --card: #ffffff; --ink: #1b1c1a; --muted: #5d6159; --line: #dfe1db; --hi: #2f6f5e; --ui: "DM Sans", system-ui, sans-serif; }}
 @media (prefers-color-scheme: dark) {{ :root:not([data-theme="light"]) {{ --bg: #141513; --card: #1d1f1c; --ink: #ecede9; --muted: #a4a89f; --line: #30332e; --hi: #7fc4ae; color-scheme: dark }} }}

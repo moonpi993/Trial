@@ -82,11 +82,12 @@ python3 -I scripts/style_menu.py WORK/style-menu.html WORK/raw/<face>.jpg WORK/r
     --title "<Name>'s style menu" --label "STEP 1" --line "<a real caption from the story>" [--current <style>]
 ```
 
-Publish the HTML as an artifact and ask which style they want. Put a clear, characterful frame first: a face beats a patch of fur. The six built-in styles are described in `references/styles.md`:
+Publish the HTML as an artifact and ask which style they want. Put a clear, characterful frame first: a face beats a patch of fur. The built-in styles are described in `references/styles.md`. If the account has a brand style, use it unless the user asks otherwise, because a matching grid matters more than any one post:
 
 | Style | What it is |
 |---|---|
-| sleepy-diary | Butter and espresso, Bricolage Grotesque plus Caveat handwriting, warm matte grade. The Kanzoo look. |
+| kanzoo-brand | **Default for Kanzoo posts.** Inter caps plus Pagella italic, cream/caramel/espresso, warm grade that calms blues and greens so every post matches the grid. |
+| sleepy-diary | Butter and espresso, Bricolage Grotesque plus Caveat handwriting, rich golden grade. |
 | editorial-script | Bright neutral grade, Jost caps plus a Pinyon Script title word. |
 | soft-film | Teal-orange faded grade, Archivo plus italic Fraunces. |
 | bold-meme | Punchy saturated grade, Anton plus Permanent Marker with outlines. |
