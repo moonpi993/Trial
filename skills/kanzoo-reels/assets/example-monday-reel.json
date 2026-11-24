@@ -1,0 +1,430 @@
+{
+ "title": "How to survive a Monday",
+ "fps": 25,
+ "style": "kanzoo-video",
+ "sources": {
+  "H": "clips/head-stroke.mov",
+  "P": "clips/paw-hold.mov",
+  "B": "clips/belly-pan.mov",
+  "T": "clips/toe-beans.mp4",
+  "W": "clips/white-sheets.mov",
+  "F": "clips/sleepy-face.jpg"
+ },
+ "title_card": {
+  "kicker": "How to survive a",
+  "word": "Monday",
+  "tag": "Kanzoo edition"
+ },
+ "sections": [
+  {
+   "id": "hook",
+   "title": "Hook",
+   "note": "Title over three quick shots; the best shot shows up early."
+  },
+  {
+   "id": "s1",
+   "label": "Step 1",
+   "line": "ignore the alarm",
+   "note": "Alarm gets louder, a finger pokes, the kitten never moves."
+  },
+  {
+   "id": "s2",
+   "label": "Step 2",
+   "line": "toe bean stretch",
+   "note": "Quick bean close-ups cut on each twitch."
+  },
+  {
+   "id": "s3",
+   "label": "Step 3",
+   "line": "repeat",
+   "note": "Fast replays with a counter."
+  },
+  {
+   "id": "end",
+   "title": "That's it",
+   "lines": [
+    {
+     "text": "That's it.",
+     "punch": true
+    },
+    "That's the whole routine."
+   ],
+   "note": "Quiet holds, fade to espresso."
+  }
+ ],
+ "shots": [
+  {
+   "id": "01",
+   "section": "hook",
+   "dur": 1.1,
+   "src": "W",
+   "in": 5.0,
+   "zoom": 1.0,
+   "cx": 0.38,
+   "cy": 0.5,
+   "what": "Asleep on white sheets",
+   "sound": "Room tone",
+   "push": 0.06
+  },
+  {
+   "id": "02",
+   "section": "hook",
+   "dur": 1.0,
+   "src": "H",
+   "in": 7.0,
+   "zoom": 1.7,
+   "cx": 0.46,
+   "cy": 0.18,
+   "what": "Eyes squeezed shut, close",
+   "sound": "Title word pops in"
+  },
+  {
+   "id": "03",
+   "section": "hook",
+   "dur": 1.2,
+   "src": "F",
+   "in": 0,
+   "zoom": 1.0,
+   "cx": 0.36,
+   "cy": 0.5,
+   "what": "Your photo, slow zoom",
+   "sound": "Payoff shown early",
+   "push": 0.08
+  },
+  {
+   "id": "04",
+   "section": "s1",
+   "dur": 1.0,
+   "src": "W",
+   "in": 2.0,
+   "zoom": 1.0,
+   "cx": 0.62,
+   "cy": 0.5,
+   "what": "Curled up, wide",
+   "sound": "Alarm beep starts",
+   "push": 0.03
+  },
+  {
+   "id": "05",
+   "section": "s1",
+   "dur": 0.8,
+   "src": "W",
+   "in": 14.0,
+   "zoom": 1.5,
+   "cx": 0.4,
+   "cy": 0.56,
+   "what": "Nose, close",
+   "sound": "Beep"
+  },
+  {
+   "id": "06",
+   "section": "s1",
+   "dur": 0.8,
+   "src": "H",
+   "in": 4.0,
+   "zoom": 1.6,
+   "cx": 0.47,
+   "cy": 0.22,
+   "what": "Finger pokes forehead",
+   "sound": "Beep, louder"
+  },
+  {
+   "id": "07",
+   "section": "s1",
+   "dur": 0.9,
+   "src": "H",
+   "in": 13.0,
+   "zoom": 1.0,
+   "cx": 0.47,
+   "cy": 0.5,
+   "what": "Hand gives up and lifts",
+   "sound": "Beep"
+  },
+  {
+   "id": "08",
+   "section": "s1",
+   "dur": 1.0,
+   "src": "W",
+   "in": 8.0,
+   "zoom": 1.0,
+   "cx": 0.4,
+   "cy": 0.5,
+   "what": "Still asleep, long hold",
+   "sound": "Beep cuts off. Silence",
+   "push": 0.05
+  },
+  {
+   "id": "09",
+   "section": "s2",
+   "dur": 1.0,
+   "src": "T",
+   "in": 0.5,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "what": "Toe beans, wide",
+   "sound": "Soft whoosh in"
+  },
+  {
+   "id": "11",
+   "section": "s2",
+   "dur": 0.8,
+   "src": "P",
+   "in": 3.0,
+   "zoom": 1.6,
+   "cx": 0.36,
+   "cy": 0.3,
+   "what": "Paw held in palm"
+  },
+  {
+   "id": "19",
+   "section": "s3",
+   "dur": 0.44,
+   "src": "W",
+   "in": 5.0,
+   "zoom": 1.0,
+   "cx": 0.38,
+   "cy": 0.5,
+   "what": "Replay of step 1",
+   "sound": "Fast replay, 2x",
+   "speed": 2
+  },
+  {
+   "id": "20",
+   "section": "s3",
+   "dur": 0.44,
+   "src": "T",
+   "in": 0.5,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "what": "Replay of step 2",
+   "speed": 2
+  },
+  {
+   "id": "21",
+   "section": "s3",
+   "dur": 0.44,
+   "src": "H",
+   "in": 4.0,
+   "zoom": 1.6,
+   "cx": 0.47,
+   "cy": 0.22,
+   "what": "Replay of step 3",
+   "speed": 2
+  },
+  {
+   "id": "22",
+   "section": "s3",
+   "dur": 0.36,
+   "src": "W",
+   "in": 5.0,
+   "zoom": 1.0,
+   "cx": 0.38,
+   "cy": 0.5,
+   "what": "Step 1 again, faster",
+   "speed": 2
+  },
+  {
+   "id": "23",
+   "section": "s3",
+   "dur": 0.36,
+   "src": "T",
+   "in": 0.5,
+   "zoom": 1.0,
+   "cx": 0.5,
+   "cy": 0.5,
+   "what": "Step 2 again",
+   "speed": 2
+  },
+  {
+   "id": "24",
+   "section": "s3",
+   "dur": 0.36,
+   "src": "H",
+   "in": 4.0,
+   "zoom": 1.6,
+   "cx": 0.47,
+   "cy": 0.22,
+   "what": "Step 3 again",
+   "sound": "Hard stop",
+   "speed": 2
+  },
+  {
+   "id": "25",
+   "section": "end",
+   "dur": 2.0,
+   "src": "F",
+   "in": 0,
+   "zoom": 1.0,
+   "cx": 0.36,
+   "cy": 0.5,
+   "what": "Your photo, long hold",
+   "sound": "Silence, room tone",
+   "push": 0.07
+  },
+  {
+   "id": "26",
+   "section": "end",
+   "dur": 2.0,
+   "src": "B",
+   "in": 25.5,
+   "zoom": 1.0,
+   "cx": 0.4,
+   "cy": 0.5,
+   "what": "Sleepy face, wide",
+   "sound": "Fade to espresso, then the Reel loops to shot 01",
+   "push": 0.06
+  }
+ ],
+ "pops": [
+  {
+   "text": "beep",
+   "at": "04+0.13",
+   "until": "04.end",
+   "x": 520,
+   "y": 330,
+   "size": 90,
+   "rot": -14
+  },
+  {
+   "text": "beep beep",
+   "at": "05+0.03",
+   "until": "05.end",
+   "x": 70,
+   "y": 1330,
+   "size": 84,
+   "rot": 11
+  },
+  {
+   "text": "BEEP",
+   "at": "06+0.03",
+   "until": "06.end",
+   "x": 660,
+   "y": 1290,
+   "size": 110,
+   "rot": -18
+  },
+  {
+   "text": "BEEEP",
+   "at": "07+0.03",
+   "until": "08+0.12",
+   "x": 620,
+   "y": 560,
+   "size": 130,
+   "rot": 18
+  },
+  {
+   "text": "×2",
+   "at": "20",
+   "until": "20.end",
+   "x": 780,
+   "y": 960,
+   "size": 190,
+   "rot": 0
+  },
+  {
+   "text": "×3",
+   "at": "21",
+   "until": "21.end",
+   "x": 780,
+   "y": 960,
+   "size": 190,
+   "rot": 0
+  },
+  {
+   "text": "×4",
+   "at": "22",
+   "until": "22.end",
+   "x": 780,
+   "y": 960,
+   "size": 190,
+   "rot": 0
+  },
+  {
+   "text": "×5",
+   "at": "23",
+   "until": "23.end",
+   "x": 780,
+   "y": 960,
+   "size": 190,
+   "rot": 0
+  },
+  {
+   "text": "×∞",
+   "at": "24",
+   "until": "24.end-0.05",
+   "x": 780,
+   "y": 960,
+   "size": 190,
+   "rot": 0
+  }
+ ],
+ "sfx": [
+  {
+   "sound": "pop",
+   "at": "02",
+   "vol": 0.8
+  },
+  {
+   "sound": "alarm",
+   "at": "04+0.08",
+   "until": "08+0.12",
+   "vol": 0.9
+  },
+  {
+   "sound": "whoosh",
+   "at": "09-0.3",
+   "vol": 0.7
+  },
+  {
+   "sound": "whoosh",
+   "at": "19-0.3",
+   "vol": 0.6
+  },
+  {
+   "sound": "tick",
+   "at": "20",
+   "vol": 0.5
+  },
+  {
+   "sound": "tick",
+   "at": "21",
+   "vol": 0.6
+  },
+  {
+   "sound": "tick",
+   "at": "22",
+   "vol": 0.7
+  },
+  {
+   "sound": "tick",
+   "at": "23",
+   "vol": 0.8
+  },
+  {
+   "sound": "tick",
+   "at": "24",
+   "vol": 0.9
+  },
+  {
+   "sound": "pop",
+   "at": "11+0.3",
+   "vol": 0.55
+  },
+  {
+   "sound": "thud",
+   "at": "25",
+   "vol": 0.8
+  }
+ ],
+ "storyboard": {
+  "intro": "A four-step guide starring a kitten who does nothing at all.",
+  "questions": [
+   "Name on the title: Kanzoo?",
+   "Music: added in Instagram, or send a track?",
+   "Length: keep about 18s?"
+  ]
+ },
+ "_comment": "The loved Monday Reel (kanzoo-monday-reel-4k-brand.mp4). Point the clip paths at real files."
+}
