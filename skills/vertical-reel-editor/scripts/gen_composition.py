@@ -85,13 +85,18 @@ for sid in order:
     if s.get("lines"):
         sh = shots_in(sid); n = len(s["lines"])
         starts = [sh[min(i * len(sh) // n, len(sh) - 1)]["start"] for i in range(n)]
-        for i, text in enumerate(s["lines"]):
-            st = starts[i] + (0.2 if i == 0 else -0.12)
+        for i, item in enumerate(s["lines"]):
+            # a line is "text" or {"text": ..., "punch": true}; punch = lands on the cut and snaps in (punchlines)
+            text, punch = (item, False) if isinstance(item, str) else (item["text"], item.get("punch", False))
+            st = starts[i] + (0.0 if punch else (0.2 if i == 0 else -0.12))
             en = (starts[i + 1] - 0.02) if i + 1 < n else total
             k = f"end_{sid}_{i}"
             size = 150 if len(text) <= 12 else 116
             clip(k, "end", st, en - st, f'<span class="line" style="font-size:{round(size * style.get("line_scale", 1))}px">{text}</span>')
-            js.append(f'tl.fromTo("#{k} .line", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }}, {r3(st + 0.02)});')
+            if punch:
+                js.append(f'tl.fromTo("#{k} .line", {{ opacity: 0, scale: 1.5 }}, {{ opacity: 1, scale: 1, duration: 0.14, ease: "back.out(2.6)" }}, {r3(st)});')
+            else:
+                js.append(f'tl.fromTo("#{k} .line", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }}, {r3(st + 0.02)});')
             if i + 1 < n:
                 js.append(f'tl.to("#{k}", {{ opacity: 0, duration: 0.12 }}, {r3(en - 0.13)});')
 
@@ -100,7 +105,7 @@ for i, p in enumerate(spec.get("pops", [])):
     rot = p.get("rot", (-6 if i % 2 else 6))
     pos = f'left:{p.get("x", 150)}px; top:{p.get("y", 400)}px; font-size:{p.get("size", 96)}px;'
     clip(f"pop{i}", "pop", st, en - st + 0.05, f'<span class="line" style="{pos}">{p["text"]}</span>', 3)
-    js += [f'tl.fromTo("#pop{i} .line", {{ opacity: 0, scale: 0.4, rotation: {rot * 1.6} }}, {{ opacity: 1, scale: 1, rotation: {rot}, duration: 0.18, ease: "back.out(3)" }}, {r3(st)});',
+    js += [f'tl.fromTo("#pop{i} .line", {{ opacity: 0, scale: 0.4, rotation: {rot * 1.6 if abs(rot) < 20 else rot + 12} }}, {{ opacity: 1, scale: 1, rotation: {rot}, duration: 0.18, ease: "back.out(3)" }}, {r3(st)});',
            f'tl.to("#pop{i} .line", {{ opacity: 0, duration: 0.06 }}, {r3(en - 0.06)});']
 
 clip("fadeout", "full fadeout", total - 0.6, 0.6, "", 4)
@@ -125,7 +130,7 @@ html = f'''<!doctype html>
       #footage {{ position: absolute; inset: 0; width: {W}px; height: {H}px; object-fit: cover; }}
       #stage {{ position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; transform: scale({S}); transform-origin: 0 0; }}
       .full {{ position: absolute; inset: 0; width: 1080px; height: 1920px; }}
-      .sz {{ display: block; }} .kick {{ font-size: 56px; }} .tagw {{ font-size: 40px; margin-top: 46px; }} .lab {{ font-size: 50px; }}
+      .sz {{ display: block; }} .kick {{ font-size: 73px; }} .tagw {{ font-size: 52px; margin-top: 50px; }} .lab {{ font-size: 50px; }}
       .label {{ display: inline-block; font-size: 1em; {style['label_css']} }}
       .tag {{ letter-spacing: .16em; }}
       .line {{ {style['line_css']} }}
