@@ -129,6 +129,8 @@ npx -y hyperframes snapshot --at <one time per section>   # LOOK at the contact 
 npx -y hyperframes render -o renders/out.mp4 --fps 25 --video-frame-format png --quiet [--video-bitrate 45M for 4K]
 # c. sound
 python3 -I scripts/mix_sfx.py WORK/r/cues.json WORK/proj/renders/out.mp4 FINAL.mp4
+# d. size: a copy under 30 MB (1080p, two-pass bitrate picked from the duration)
+python3 -I scripts/fit_size.py FINAL.mp4 FINAL_30mb.mp4
 ```
 
 4K shot rendering takes several minutes, and so does the HyperFrames render. Run both in the background and carry on: write the next script, prepare the delivery note.
@@ -144,7 +146,7 @@ In the snapshot, check that every caption sits over the right shots, that nothin
 
 ### 7. Deliver and revise
 
-Send the final file with the file-sending tool, and say:
+Send the final file and `FINAL_30mb.mp4` with the file-sending tool. The full-quality render is usually 60–100 MB, which is too big for anything with a 30 MB limit (Claude uploads, many chat apps), so the small copy is the one to re-upload or share. Say:
 - The length, resolution and fps.
 - What's on screen, section by section, in a short table.
 - That music is meant to be added in the app, with the original sound kept at about 50–70% so the SFX still come through.

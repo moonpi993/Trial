@@ -33,9 +33,10 @@ The pipeline is the same one used for the Monday Reel. The plan format is in `re
    cd WORK/proj && npx -y hyperframes check && npx -y hyperframes snapshot --at <one time per section>
    npx -y hyperframes render -o renders/out.mp4 --fps 25 --video-frame-format png --video-bitrate 45M --quiet
    python3 -I scripts/mix_sfx.py WORK/r/cues.json WORK/proj/renders/out.mp4 FINAL.mp4
+   python3 -I scripts/fit_size.py FINAL.mp4 FINAL_30mb.mp4          # 1080p copy under 30 MB
    ```
    Read every snapshot. Captions and pop-ups must not touch his eyes, nose or mouth, and the first letter of a label must not vanish on a dark blanket edge. If either happens, reframe the shot (`cy`/`cx`) or move the pop-up.
-5. **Deliver.** Send the MP4 and a ZIP copy (`zip -0`), because the user's phone app downsizes plain video downloads to 720p. Keep each file under 100 MB: 45M bitrate suits about 16s.
+5. **Deliver.** Send the MP4 and a ZIP copy (`zip -0`), because the user's phone app downsizes plain video downloads to 720p. Keep each file under 100 MB: 45M bitrate suits about 16s. Always also send `FINAL_30mb.mp4` from `fit_size.py`, because the full-quality file is too big for anything with a 30 MB limit (Claude uploads, many chat apps). Tell the user which file is which.
 
 ## Making a cover or thumbnail
 
