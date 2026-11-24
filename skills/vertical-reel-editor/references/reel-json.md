@@ -49,6 +49,10 @@ The first section's window holds the `title_card`. Its three lines land on the f
 - `lines`: ending lines shown one after another, spread over the section's shots.
 - `title` / `note`: storyboard heading and one-line description only.
 
+## Highlight words (second colour)
+
+Wrap any word in `*asterisks*` inside `title_card`, `sections[].label/line/lines` or `pops[].text` to set it in the style's `highlight_css` colour, e.g. `"line": "ignore the *alarm*"`. Use it for the hook word and one key word per section; a pop with `"highlight": true` is coloured whole. Keep it to one highlight per line so it stays special.
+
 ## Time references (pops and sfx)
 
 `3.2` absolute · `"08"` start of shot 08 · `"08+0.12"` / `"08-0.3"` offset · `"08.end"` end of shot 08 · `"end-0.6"` from the film's end. Tie cues to shots, never to absolute times, so they follow re-cuts.

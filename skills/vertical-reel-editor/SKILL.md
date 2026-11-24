@@ -86,7 +86,7 @@ Publish the HTML as an artifact and ask which style they want. Put a clear, char
 
 | Style | What it is |
 |---|---|
-| kanzoo-brand | **Default for Kanzoo posts.** Soft natural coffee light, espresso Pagella italic with small wide-spaced mocha Inter caps, no white text, no dark fades, title lower-left in the empty space beside him. |
+| kanzoo-brand | **Default for Kanzoo posts.** Soft natural coffee light, TeX Gyre Chorus script in espresso with caramel highlight words, small mocha Inter Medium caps, no white, no dark fades. Don't replace the user's own thumbnails. |
 | sleepy-diary | Butter and espresso, Bricolage Grotesque plus Caveat handwriting, rich golden grade. |
 | editorial-script | Bright neutral grade, Jost caps plus a Pinyon Script title word. |
 | soft-film | Teal-orange faded grade, Archivo plus italic Fraunces. |

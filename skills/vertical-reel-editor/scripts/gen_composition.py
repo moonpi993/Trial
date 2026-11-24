@@ -54,6 +54,11 @@ npm_file("gsap@3.15.0", "dist/gsap.min.js", os.path.join(proj, "assets", "gsap.m
 shutil.copy(os.path.join(work, "base_graded.mp4"), os.path.join(proj, "assets", "base.mp4"))
 
 # ---- elements + timeline ----
+import html as _html, re as _re
+def hl(text):
+    """Escape text, then wrap *words* in a highlight span (second brand colour)."""
+    return _re.sub(r"\*([^*]+)\*", r'<span class="hl">\1</span>', _html.escape(str(text)))
+
 els, js = [], []
 def clip(id_, cls, start, dur, inner, track=2, style_attr=""):
     els.append(f'<div id="{id_}" class="{cls} clip" data-start="{r3(start)}" data-duration="{r3(dur)}" data-track-index="{track}"{style_attr}>{inner}</div>')
@@ -69,9 +74,9 @@ if tc:
     a, b = win[first]
     hook = shots_in(first)
     at = [hook[min(i, len(hook) - 1)]["start"] + (0.12 if i == 0 else 0) for i in range(3)]
-    clip("title", "title", 0, b, (f'<span id="t1" class="sz kick"><span class="label">{tc.get("kicker","")}</span></span>'
-                                  f'<span id="t2" class="line">{tc.get("word","")}</span>'
-                                  f'<span id="t3" class="sz tagw"><span class="label tag">{tc.get("tag","")}</span></span>'))
+    clip("title", "title", 0, b, (f'<span id="t1" class="sz kick"><span class="label">{hl(tc.get("kicker",""))}</span></span>'
+                                  f'<span id="t2" class="line">{hl(tc.get("word",""))}</span>'
+                                  f'<span id="t3" class="sz tagw"><span class="label tag">{hl(tc.get("tag",""))}</span></span>'))
     js += [f'tl.fromTo("#t1", soft, {{ ...on }}, {r3(at[0])});',
            f'tl.fromTo("#t2", {{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}, {{ opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.38, ease: "back.out(1.8)" }}, {r3(at[1])});',
            f'tl.fromTo("#t3", soft, {{ ...on }}, {r3(at[2])});',
@@ -82,7 +87,7 @@ for sid in order:
     a, b = win[sid]
     if s.get("label") or s.get("line"):
         k = f"sec_{sid}"
-        clip(k, "step", a, b - a, f'<span class="sz lab"><span class="label">{s.get("label","")}</span></span><span class="line">{s.get("line","")}</span>')
+        clip(k, "step", a, b - a, f'<span class="sz lab"><span class="label">{hl(s.get("label",""))}</span></span><span class="line">{hl(s.get("line",""))}</span>')
         js += [f'tl.fromTo("#{k} .lab", soft, {{ ...on }}, {r3(a + 0.04)});',
                f'tl.fromTo("#{k} .line", {{ opacity: 0, x: -30, rotation: -3 }}, {{ opacity: 1, x: 0, rotation: 0, duration: 0.38, ease: "back.out(1.6)" }}, {r3(a + 0.14)});',
                f'tl.to("#{k}", {{ opacity: 0, duration: 0.14 }}, {r3(b - 0.15)});']
@@ -96,7 +101,7 @@ for sid in order:
             en = (starts[i + 1] - 0.02) if i + 1 < n else total
             k = f"end_{sid}_{i}"
             size = 150 if len(text) <= 12 else 116
-            clip(k, "end", st, en - st, f'<span class="line" style="font-size:{round(size * style.get("line_scale", 1))}px">{text}</span>')
+            clip(k, "end", st, en - st, f'<span class="line" style="font-size:{round(size * style.get("line_scale", 1))}px">{hl(text)}</span>')
             if punch:
                 js.append(f'tl.fromTo("#{k} .line", {{ opacity: 0, scale: 1.5 }}, {{ opacity: 1, scale: 1, duration: 0.14, ease: "back.out(2.6)" }}, {r3(st)});')
             else:
@@ -108,7 +113,7 @@ for i, p in enumerate(spec.get("pops", [])):
     st = resolve(p["at"], rows, total); en = resolve(p.get("until", st + 0.6), rows, total)
     rot = p.get("rot", (-6 if i % 2 else 6))
     pos = f'left:{p.get("x", 150)}px; top:{p.get("y", 400)}px; font-size:{p.get("size", 96)}px;'
-    clip(f"pop{i}", "pop", st, en - st + 0.05, f'<span class="line" style="{pos}">{p["text"]}</span>', 3)
+    clip(f"pop{i}", "pop", st, en - st + 0.05, f'<span class="line{" hl" if p.get("highlight") else ""}" style="{pos}">{hl(p["text"])}</span>', 3)
     js += [f'tl.fromTo("#pop{i} .line", {{ opacity: 0, scale: 0.4, rotation: {rot * 1.6 if abs(rot) < 20 else rot + 12} }}, {{ opacity: 1, scale: 1, rotation: {rot}, duration: 0.18, ease: "back.out(3)" }}, {r3(st)});',
            f'tl.to("#pop{i} .line", {{ opacity: 0, duration: 0.06 }}, {r3(en - 0.06)});']
 
@@ -139,6 +144,7 @@ html = f'''<!doctype html>
       .label {{ display: inline-block; font-size: 1em; {style['label_css']} }}
       .tag {{ letter-spacing: .16em; }}
       .line {{ {style['line_css']} }}
+      .hl {{ {style.get('highlight_css', 'color: var(--accent-c);')} }}
       .scrim {{ background: linear-gradient(to bottom, transparent 55%, {style.get('scrim') or 'transparent'} 70%, {style.get('scrim') or 'transparent'} 76%, transparent 92%); }}
       .topscrim {{ background: linear-gradient(to bottom, transparent 8%, {style.get('scrim') or 'transparent'} 24%, {style.get('scrim') or 'transparent'} 36%, transparent 50%); }}
       .title {{ position: absolute; left: 60px; right: 60px; top: 300px; text-align: center; }}
