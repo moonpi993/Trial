@@ -61,21 +61,21 @@ ol li::before {{ content: counter(r, decimal-leading-zero); font: italic 400 1.2
   <section class="hero">
     <img src="{thumb}" alt="Official Kanzoo Monday thumbnail" width="1080" height="1920">
     <div><p class="kick">Visual style menu</p><h1>Kanzoo</h1>
-      <p class="lede">The locked look for every Kanzoo post. Videos follow the Monday Reel; covers follow this thumbnail. Soft natural coffee light, dark coffee text placed in the empty space beside him, never white, no bars, no dark fades.</p></div>
+      <p class="lede">The locked look for every Kanzoo post. Videos and covers share this thumbnail's fonts, colours and glow. Soft natural coffee light, dark coffee text placed in the empty space beside him, never white, no bars, no dark fades.</p></div>
   </section>
 
   <section><p class="kick">Video look</p><h2>From the Monday Reel</h2>
-    <p class="lede">Pagella italic lines in espresso, small wide-spaced Inter capitals in mocha. The hook title sits lower-left; steps sit mid-frame; beeps pop up in a different spot each time; "That's it." snaps in.</p>
+    <p class="lede">Chorus lines in espresso and wide-spaced Inter Medium capitals in mocha, each with a soft cream glow, exactly like the thumbnail. The hook title sits lower-left; steps sit mid-frame; beeps pop up in a different spot each time; "That's it." snaps in.</p>
     <div class="strip">{strip}</div></section>
 
   <section><p class="kick">Palette</p><h2>Coffee tones</h2>
     <div class="pal">{swatches}</div>
     <p class="lede" style="margin-top:14px">Text: espresso. Small capitals: mocha. Backgrounds and paper: cream.</p></section>
 
-  <section><p class="kick">Fonts</p><h2>Four fonts, two jobs</h2>
+  <section><p class="kick">Fonts</p><h2>One type system everywhere</h2>
     <div class="fonts">
-      <div class="fc"><span class="tagline">Video lines</span><span class="f-pag">ignore the alarm</span><span class="f-cap">Step 1 · Inter Regular</span><p>TeX Gyre Pagella Italic for every spoken line; Inter Regular for labels.</p></div>
-      <div class="fc"><span class="tagline">Thumbnails</span><span class="f-cho">Monday</span><span class="f-cap" style="font-weight:500">Kanzoo edition · Inter Medium</span><p>TeX Gyre Chorus for the cover word; Inter Medium for the small capitals.</p></div>
+      <div class="fc"><span class="tagline">Words and lines</span><span class="f-cho">Monday</span><p>TeX Gyre Chorus, espresso #341D13, with a soft cream glow. Used for the cover word and every line in the video.</p></div>
+      <div class="fc"><span class="tagline">Small capitals</span><span class="f-cap" style="font-weight:500;font-size:16px">How to survive a · Kanzoo edition</span><p>Inter Medium, mocha #694330, wide letter spacing, the same glow. Used for kickers, step numbers and tags.</p></div>
     </div></section>
 
   <section><p class="kick">Optional</p><h2>Highlight colours</h2>
@@ -85,7 +85,7 @@ ol li::before {{ content: counter(r, decimal-leading-zero); font: italic 400 1.2
   <section><p class="kick">Rules</p><h2>Keep doing</h2>
     <ol>
       <li><span><b>Same grade on everything.</b> Soft natural coffee light: not bright, not dark, never pale.</span></li>
-      <li><span><b>No white text.</b> Espresso and mocha only; a faint light-beige halo is allowed where text crosses a dark spot.</span></li>
+      <li><span><b>No white text.</b> Espresso and mocha only, with the soft cream glow behind the words.</span></li>
       <li><span><b>Text sits on the picture.</b> No bars, boxes or dark fades behind it. Place it in the calm space beside his face.</span></li>
       <li><span><b>Keep his face clear.</b> No caption or pop-up on his eyes, nose or mouth.</span></li>
       <li><span><b>Shoot light.</b> White sheets, daylight, window light make this look shine.</span></li>

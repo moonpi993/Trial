@@ -3,7 +3,7 @@
   "styles": {
     "kanzoo-video": {
       "name": "Kanzoo Video",
-      "mood": "Soft natural coffee light. Espresso Pagella italic lines and small wide-spaced mocha Inter capitals sitting directly on the footage. No white, no bars, no dark fades.",
+      "mood": "Matches the official thumbnail: TeX Gyre Chorus in espresso and wide-spaced Inter Medium capitals in mocha, each with a soft cream glow, on soft natural coffee light. No white text, no bars, no dark fades.",
       "best_for": "Every Kanzoo Reel",
       "pacing": "Hook title over 3 quick shots, 0.7-1.0s cuts on actions, a fast replay montage, slow quiet holds to end",
       "palette": {
@@ -21,27 +21,26 @@
       },
       "fonts": {
         "bold": {
-          "family": "Inter",
+          "family": "Inter Medium",
           "local": true,
-          "file": "inter-latin-400-normal.woff2",
-          "weight": 400
+          "file": "inter-medium.otf",
+          "weight": 500
         },
         "accent": {
-          "family": "TeX Gyre Pagella",
+          "family": "TeX Gyre Chorus",
           "local": true,
-          "file": "texgyrepagella-italic.otf",
-          "weight": 400,
-          "style": "italic"
+          "file": "texgyrechorus-mediumitalic.otf",
+          "weight": 400
         }
       },
       "grade": "lutrgb=r='clip((val-111.3)*0.909+135.9,0,255)':g='clip((val-97.3)*0.901+109.7,0,255)':b='clip((val-86.7)*0.848+92.7,0,255)',cas=0.35",
-      "label_css": "color: #452D22; text-transform: uppercase; letter-spacing: .4em; font-family: var(--bold); font-weight: 400; font-size: .48em; text-shadow: 0 0 3px rgba(227,206,193,.75), 0 0 14px rgba(227,206,193,.6), 0 0 28px rgba(227,206,193,.35);",
-      "line_css": "color: #311B11; font-family: var(--accent); font-style: italic; font-weight: 400; -webkit-text-stroke: .6px #311B11; text-shadow: 0 0 4px rgba(227,206,193,.55), 0 0 22px rgba(227,206,193,.45);",
+      "label_css": "color: #694330; text-transform: uppercase; letter-spacing: .42em; font-family: var(--bold); font-weight: 500; font-size: .55em; text-shadow: 0 0 18px rgba(250,246,241,.55), 0 0 40px rgba(250,246,241,.3);",
+      "line_css": "color: #341D13; font-family: var(--accent); font-weight: 400; -webkit-text-stroke: 1px #341D13; text-shadow: 0 0 24px rgba(250,246,241,.55), 0 0 60px rgba(250,246,241,.35);",
       "highlight_css": "color: #A56D4E; -webkit-text-stroke: .9px #7E4F36; text-shadow: 0 1px 1px rgba(52,29,19,.55), 0 0 2px rgba(52,29,19,.35), 0 0 16px rgba(227,206,192,.35);",
-      "line_scale": 0.86,
+      "line_scale": 0.888,
       "scrim": "",
       "fade_to": "#6C4A38",
-      "extra_css": ".title { left: 78px; right: auto; top: 1240px; text-align: left; } .title .line { margin-left: -6px; } .tagw { font-size: 73px; margin-top: -10px; } .tag { color: #6C4A38; } .lab { font-size: 70px; } .end { left: 78px; right: 130px; text-align: left; }"
+      "extra_css": ".title { left: 78px; right: auto; top: 1320px; text-align: left; } .title .line { margin-left: 4px; margin-top: 5px; line-height: .86; } .tagw { font-size: 67px; margin-top: -1px; } .tag { color: #694330; } .lab { font-size: 70px; } .end { left: 78px; right: 130px; text-align: left; }"
     }
   },
   "highlight_options": {

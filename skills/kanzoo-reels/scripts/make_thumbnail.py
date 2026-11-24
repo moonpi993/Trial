@@ -45,12 +45,16 @@ html = f'''<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face {{ font-family: "InterM"; src: url("file://{fonts}/inter-medium.otf") format("opentype"); font-weight: 500; }}
 html, body {{ margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #694330; }}
 .bg {{ position: absolute; inset: 0; width: 1080px; height: 1920px; object-fit: cover; }}
-.t {{ position: absolute; left: 80px; top: 1378px; }}
-.cap {{ display: block; font: 500 35px "InterM", sans-serif; letter-spacing: .42em; text-transform: uppercase; color: #694330; }}
-.w {{ display: block; font: 400 222px/0.86 "Chorus", serif; color: #341D13; margin: 0 0 0 4px; }}
-.tag {{ margin-top: -16px; }}
+.glow {{ position: absolute; inset: 0; background:
+  radial-gradient(ellipse 470px 230px at 340px 1505px, rgba(250,246,241,.44), rgba(250,246,241,.23) 48%, rgba(250,246,241,0) 100%); }}
+.t {{ position: absolute; left: 78px; top: 1345px; }}
+.cap {{ display: block; font: 500 40px "InterM", sans-serif; letter-spacing: .42em; text-transform: uppercase; color: #694330;
+  text-shadow: 0 0 18px rgba(250,246,241,.55), 0 0 40px rgba(250,246,241,.3); }}
+.w {{ display: block; font: 400 222px/0.86 "Chorus", serif; color: #341D13; margin: 5px 0 0 4px; -webkit-text-stroke: 1px #341D13;
+  text-shadow: 0 0 24px rgba(250,246,241,.55), 0 0 60px rgba(250,246,241,.35); }}
+.tag {{ font-size: 37px; margin-top: -1px; }}
 </style></head><body>
-<img class="bg" src="file://{bg}">
+<img class="bg" src="file://{bg}"><div class="glow"></div>
 <div class="t"><span class="cap">{esc(a.kicker)}</span><span class="w">{esc(a.word)}</span><span class="cap tag">{esc(a.tag)}</span></div>
 </body></html>'''
 page = os.path.join(tmp, "thumb.html"); open(page, "w").write(html)

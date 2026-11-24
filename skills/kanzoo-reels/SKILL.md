@@ -1,6 +1,6 @@
 ---
 name: kanzoo-reels
-description: Kanzoo's locked brand look for Instagram. Makes Reels that match the loved Monday Reel (soft natural coffee light, espresso TeX Gyre Pagella italic lines, small wide-spaced mocha Inter capitals, no white, no bars, no dark fades) and covers/thumbnails that match the official Monday thumbnail (TeX Gyre Chorus word plus Inter Medium capitals, lower-left). Includes the visual style menu. Use this whenever the user mentions Kanzoo, their kitten, the cat account, a new Kanzoo Reel/post/cover/thumbnail, "my style", "same look as Monday", or uploads new kitten clips to edit, even if they don't name the skill.
+description: Kanzoo's locked brand look for Instagram. Reels and covers/thumbnails share one type system copied from the user's official Monday thumbnail: TeX Gyre Chorus in espresso plus wide-spaced Inter Medium capitals in mocha, each with a soft cream glow, on soft natural coffee light. No white, no bars, no dark fades. Includes the visual style menu. Use this whenever the user mentions Kanzoo, their kitten, the cat account, a new Kanzoo Reel/post/cover/thumbnail, "my style", "same look as Monday", or uploads new kitten clips to edit, even if they don't name the skill.
 compatibility: Needs ffmpeg/ffprobe, Node with npx (HyperFrames runs as `npx hyperframes`), Python 3 and Playwright's Chromium. All fonts are bundled in assets/fonts.
 ---
 
@@ -10,8 +10,8 @@ This skill locks in two looks the user approved after many rounds. Reproduce the
 
 | Output | The reference | What it looks like |
 |---|---|---|
-| **Video** | `kanzoo-monday-reel-4k-brand.mp4` (frames in `assets/reference/video-*.jpg`) | Style `kanzoo-video`: soft natural coffee grade; spoken lines in TeX Gyre Pagella Italic, espresso `#311B11`; labels in Inter Regular capitals, letter spacing .4em, mocha `#452D22`/`#6C4A38`; hook title lower-left; faint light-beige halo only where text crosses a dark spot. |
-| **Cover / thumbnail** | `assets/reference/official-thumbnail.jpg` (the user made it; never replace it) | `scripts/make_thumbnail.py`: same grade; the word in TeX Gyre Chorus, espresso `#341D13`; kicker and tag in Inter Medium capitals, mocha `#694330`; lower-left on calm sheet or fur, no fade. |
+| **Video** | `kanzoo-monday-reel-4k-final.mp4` (frames in `assets/reference/video-*.jpg`) | Style `kanzoo-video`: soft natural coffee grade; lines in TeX Gyre Chorus, espresso `#341D13`; labels in Inter Medium capitals, spacing .42em, mocha `#694330`; both with a soft cream glow; hook title lower-left like the thumbnail. |
+| **Cover / thumbnail** | `assets/reference/official-thumbnail.jpg` (the user made it; never replace it) | `scripts/make_thumbnail.py`: same grade and fonts; the word in Chorus with a soft cream glow behind the text block; kicker 40px and tag 37px Inter Medium mocha; lower-left on calm sheet or fur. |
 
 To show the look, run `python3 -I scripts/style_guide.py OUT.html` and publish it as an artifact. That builds the visual style menu: the thumbnail, video frames, palette, fonts and rules. Do this when the user asks to see the style, and offer it at the start of a new post so they can confirm.
 
@@ -50,7 +50,8 @@ Choose a frame where his face fills the upper right and the lower left is calm. 
 
 - **Brightness:** they rejected looks that were too bright, too dark, or pale and washed out. The kanzoo-video grade is the middle they chose.
 - **Text:** no white text, no bars or boxes behind text, no dark gradient fades. Espresso and mocha only.
-- **Fonts:** Pagella Italic + Inter Regular in videos; Chorus + Inter Medium on thumbnails. Show options as real posters before changing fonts; the user decides from pictures, not descriptions.
+- **Fonts:** one system everywhere: TeX Gyre Chorus + Inter Medium, in videos and thumbnails alike (the user's own font files). Show options as real posters before changing anything; the user decides from pictures, not descriptions.
+- **Glow:** the soft cream glow behind the words is part of the look, matching the official thumbnail. It is a glow, never a bar or box, and never white text.
 - **Pop-ups:** beeps and other pop-ups land in unexpected spots, a new place and tilt each time, never lined up along the edges and never on his face.
 - **Punchlines:** they snap in on the cut (`{"text": "...", "punch": true}`).
 - **Highlights:** off by default, because the loved Reel has none. If the user wants a second color, wrap words in `*asterisks*` in the plan. The colors are listed in `styles.json` under `highlight_options` (caramel, dusty rose, honey gold and others); set the style's `highlight_css` to the chosen one. They haven't decided yet, so ask.
@@ -60,7 +61,7 @@ Choose a frame where his face fills the upper right and the lower left is calm. 
 
 - `scripts/`: the pipeline (`reelspec`, `probe_footage`, `crop_thumbs`, `build_storyboard`, `render_shots`, `gen_composition`, `mix_sfx`), plus `make_thumbnail.py`, `style_guide.py` and `style_menu.py`.
 - `assets/styles.json`: the `kanzoo-video` style and the highlight options.
-- `assets/fonts/`: TeX Gyre Pagella Italic, TeX Gyre Chorus, Inter Regular and Inter Medium.
+- `assets/fonts/`: TeX Gyre Chorus and Inter Medium (used), plus TeX Gyre Pagella Italic and Inter Regular (earlier drafts).
 - `assets/reference/`: the official thumbnail and frames from the loved Reel.
 - `assets/example-monday-reel.json`: the plan behind the loved Reel.
 - `references/reel-json.md`: the plan file format.
