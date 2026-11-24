@@ -4,7 +4,7 @@ Every style is an entry in `assets/styles.json`, with two fonts (one bold, one c
 
 | key | name | fonts (bold + accent) | grade | suits |
 |---|---|---|---|---|
-| kanzoo-brand | Kanzoo Brand | Inter 600 + TeX Gyre Pagella italic (bundled in assets/fonts) | coffee: greens and blues neutralized, espresso shadows, cream highlights, caramel fur kept rich | every post on the account, so the grid matches |
+| kanzoo-brand | Kanzoo Brand | Inter 400 (wide-spaced caps) + TeX Gyre Pagella italic (bundled) | soft natural coffee light, matched to the user's favourite cover; espresso and mocha text, never white, no dark fades; title lower-left in empty space | every post on the account |
 | sleepy-diary | Sleepy Diary | Bricolage Grotesque 800 + Caveat 700 | rich golden: deep blacks, warm mids, light sharpening | sleepy pets, how-to routines, deadpan humor |
 | editorial-script | Editorial Script | Jost 600 + Pinyon Script | bright, clean, neutral | recipes, treat or product prep, gifts |
 | soft-film | Soft Film | Archivo 800 + Fraunces 600 italic | teal shadows, orange skin and fur, faded | firsts, outdoors, emotional stories |
@@ -18,6 +18,7 @@ Every style is an entry in `assets/styles.json`, with two fonts (one bold, one c
 - **line** (accent font): the action words, the big title word, the ending lines, the pops. Its size scales with `line_scale`.
 - **scrim**: a soft gradient behind the caption band (and behind the title during the hook) that lifts light text off light fur. An empty string turns it off.
 - **fade_to**: the color of the last 0.6s fade, which helps the Reel loop.
+- **extra_css** (optional): layout overrides for the style, e.g. a left-aligned lower title. Inserted at the end of the composition CSS.
 
 ## Adding a custom style (a user's palette, swatch or reference video)
 

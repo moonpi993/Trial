@@ -3,29 +3,29 @@
   "styles": {
     "kanzoo-brand": {
       "name": "Kanzoo Brand",
-      "mood": "Coffee tones: cream, latte, caramel, mocha, espresso. Quiet Inter caps and one Pagella italic line over warm, cohesive footage.",
+      "mood": "Soft natural coffee light. Espresso Pagella italic and small mocha capitals placed in the empty space, no white, no dark fades.",
       "best_for": "Every Kanzoo post: Reels, covers and photos, so the profile grid reads as one series",
       "pacing": "Calm: 0.8-1.2s cuts, a single punchline beat, text on screen only when it adds something",
       "palette": {
-        "light": "#F8F2EB",
-        "dark": "#321D12",
-        "accent": "#A56B4D",
+        "light": "#E3CEC1",
+        "dark": "#311B11",
+        "accent": "#6C4A38",
         "swatches": {
-          "Cream": "#F8F2EB",
           "Light beige": "#E3CEC1",
           "Latte": "#C69A77",
           "Caramel": "#A56B4D",
-          "Mocha": "#6A4431",
-          "Espresso": "#321D12"
+          "Mocha": "#6C4A38",
+          "Deep mocha": "#452D22",
+          "Espresso": "#311B11"
         }
       },
       "fonts": {
         "bold": {
           "family": "Inter",
           "pkg": "inter",
-          "file": "inter-latin-600-normal.woff2",
-          "weight": 600,
-          "google": "Inter:wght@600"
+          "file": "inter-latin-400-normal.woff2",
+          "weight": 400,
+          "google": "Inter:wght@400"
         },
         "accent": {
           "family": "TeX Gyre Pagella",
@@ -35,12 +35,13 @@
           "style": "italic"
         }
       },
-      "grade": "huesaturation=colors=c+b:saturation=-0.85,huesaturation=colors=g:saturation=-0.85,huesaturation=colors=m:saturation=-0.4,huesaturation=colors=r+y:saturation=0.05,curves=all='0/0.012 0.25/0.235 0.5/0.52 0.8/0.84 1/0.97',eq=contrast=1.05:saturation=0.9,colorbalance=rs=0.05:gs=0.015:bs=-0.04:rm=0.04:gm=0.01:bm=-0.05:rh=0.02:gh=0.005:bh=-0.035,cas=0.4,vignette=PI/9",
-      "label_css": "color: var(--light); text-transform: uppercase; letter-spacing: .26em; font-family: var(--bold); font-weight: 600; font-size: .62em; text-shadow: 0 1px 12px rgba(50,29,18,.55), 0 0 2px rgba(50,29,18,.35);",
-      "line_css": "color: var(--light); font-family: var(--accent); font-style: italic; font-weight: 400; letter-spacing: -.005em; text-shadow: 0 2px 16px rgba(50,29,18,.55);",
-      "line_scale": 0.72,
-      "scrim": "rgba(50,29,18,.22)",
-      "fade_to": "#321D12"
+      "grade": "lutrgb=r='clip((val-111.3)*0.909+135.9,0,255)':g='clip((val-97.3)*0.901+109.7,0,255)':b='clip((val-86.7)*0.848+92.7,0,255)',cas=0.35",
+      "label_css": "color: #452D22; text-transform: uppercase; letter-spacing: .4em; font-family: var(--bold); font-weight: 400; font-size: .48em; text-shadow: 0 0 3px rgba(227,206,193,.75), 0 0 14px rgba(227,206,193,.6), 0 0 28px rgba(227,206,193,.35);",
+      "line_css": "color: #311B11; font-family: var(--accent); font-style: italic; font-weight: 400; -webkit-text-stroke: .6px #311B11; text-shadow: 0 0 4px rgba(227,206,193,.55), 0 0 22px rgba(227,206,193,.45);",
+      "line_scale": 0.86,
+      "scrim": "",
+      "fade_to": "#6C4A38",
+      "extra_css": ".title { left: 78px; right: auto; top: 1240px; text-align: left; } .title .line { margin-left: -6px; } .tagw { font-size: 73px; margin-top: -10px; } .tag { color: #6C4A38; } .lab { font-size: 70px; } .end { left: 78px; right: 130px; text-align: left; }"
     },
     "sleepy-diary": {
       "name": "Sleepy Diary",

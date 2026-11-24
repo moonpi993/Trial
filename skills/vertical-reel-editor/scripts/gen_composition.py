@@ -149,6 +149,7 @@ html = f'''<!doctype html>
       .end .line {{ line-height: .95; display: block; }}
       .pop .line {{ position: absolute; white-space: nowrap; }}
       .fadeout {{ background: {style.get('fade_to', '#000')}; opacity: 0; }}
+      {style.get('extra_css', '')}
     </style>
   </head>
   <body>

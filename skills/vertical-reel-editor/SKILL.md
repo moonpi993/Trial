@@ -86,7 +86,7 @@ Publish the HTML as an artifact and ask which style they want. Put a clear, char
 
 | Style | What it is |
 |---|---|
-| kanzoo-brand | **Default for Kanzoo posts.** Coffee palette (cream, light beige, latte, caramel, mocha, espresso), Inter caps plus Pagella italic, a grade that pulls greens and blues into coffee tones so every post matches the grid. |
+| kanzoo-brand | **Default for Kanzoo posts.** Soft natural coffee light, espresso Pagella italic with small wide-spaced mocha Inter caps, no white text, no dark fades, title lower-left in the empty space beside him. |
 | sleepy-diary | Butter and espresso, Bricolage Grotesque plus Caveat handwriting, rich golden grade. |
 | editorial-script | Bright neutral grade, Jost caps plus a Pinyon Script title word. |
 | soft-film | Teal-orange faded grade, Archivo plus italic Fraunces. |
@@ -166,6 +166,7 @@ Revisions are cheap if you keep the plan as the source of truth: edit `reel.json
 - Music is added by the user in the app, and the sound effects are made with FFmpeg, so nothing in the file needs a license.
 - "Pale" or "washed out" means the grade lifts blacks or cuts contrast and color too much. Keep blacks near 0, contrast at 1.0 or above, and saturation at 1.0 or above for fur.
 - "Everything except the face is blurry" means too much upscaling. Keep punch-ins at 1.7x or less on 4K sources, render HyperFrames with `--video-frame-format png` (the JPG default smears fur), keep caption scrims light, and add `cas` sharpening in the grade.
+- For Kanzoo, the user rejected white text, heavy fades, too-bright and too-dark looks. They chose a soft natural warm image with dark coffee text sitting directly on the photo. When unsure, show 3-4 options as real posters side by side instead of describing them.
 - Pop-ups such as beeps should feel unexpected: a different spot and tilt each time, never lined up along the edges and never on the face. Check every shot they cross in a snapshot.
 
 ## Files
