@@ -41,7 +41,9 @@ for sid in order:
         if s.get("lines"):
             n = len(s["lines"]); k = sum(1 for x in rows if x["section"] == sid)
             for j in range(n):
-                if i == j * k // n: line = s["lines"][j]
+                if i == j * k // n:
+                    item = s["lines"][j]
+                    line = item if isinstance(item, str) else item.get("text", "")
         moves = [m for m, on in (("2x speed", r.get("speed", 1) != 1), ("push-in", r.get("push")), ("180° roll", r.get("roll"))) if on]
         zoom = "full frame" if r.get("zoom", 1) <= 1 else f'{r["zoom"]:.1f}x punch-in'
         items += f'''<li class="shot"><div class="fr"><img src="{b64(os.path.join(thumbs, r["id"] + ".jpg"))}" alt="Shot {r['id']}" width="270" height="480" loading="lazy">{cap(label, line)}</div>
