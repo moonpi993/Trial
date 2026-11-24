@@ -9,6 +9,7 @@ Sounds (all generated with FFmpeg, so there is nothing to license):
   chime   soft bell (reveal, 'aww' moment)
   boing   springy wobble (jump, fall, silly beat)
   thud    low soft hit (plop down, hard stop)
+  file    a real sound cut from a clip (gen_composition writes these for sfx entries with \"sound\": \"original\")
 Music is not added: the user picks it in Instagram/TikTok, which handles licensing. Leave room for it.
 """
 import json, os, subprocess, sys, tempfile
@@ -44,7 +45,7 @@ def make(sound, length=None):
 
 ins, fl = [], []
 for i, c in enumerate(cues["cues"]):
-    ins += ["-i", make(c["sound"], c.get("len") if c["sound"] == "alarm" else None)]
+    ins += ["-i", c["file"] if c["sound"] == "file" else make(c["sound"], c.get("len") if c["sound"] == "alarm" else None)]
     d = max(int(c["at"] * 1000), 0)
     cut = f"atrim=0:{c['len']}," if c.get("len") and c["sound"] != "alarm" else ""
     fl.append(f"[{i}:a]{cut}volume={c.get('vol', 0.7)},adelay={d}|{d}[a{i}]")

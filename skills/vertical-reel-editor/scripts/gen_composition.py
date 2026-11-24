@@ -87,7 +87,8 @@ for sid in order:
     a, b = win[sid]
     if s.get("label") or s.get("line"):
         k = f"sec_{sid}"
-        clip(k, "step", a, b - a, f'<span class="sz lab"><span class="label">{hl(s.get("label",""))}</span></span><span class="line">{hl(s.get("line",""))}</span>')
+        ypos = f' style="top:{s["y"]}px"' if s.get("y") else ""
+        clip(k, "step", a, b - a, f'<span class="sz lab"><span class="label">{hl(s.get("label",""))}</span></span><span class="line">{hl(s.get("line",""))}</span>', 2, ypos)
         js += [f'tl.fromTo("#{k} .lab", soft, {{ ...on }}, {r3(a + 0.04)});',
                f'tl.fromTo("#{k} .line", {{ opacity: 0, x: -30, rotation: -3 }}, {{ opacity: 1, x: 0, rotation: 0, duration: 0.38, ease: "back.out(1.6)" }}, {r3(a + 0.14)});',
                f'tl.to("#{k}", {{ opacity: 0, duration: 0.14 }}, {r3(b - 0.15)});']
@@ -98,15 +99,15 @@ for sid in order:
             # a line is "text" or {"text": ..., "punch": true}; punch = lands on the cut and snaps in (punchlines)
             text, punch = (item, False) if isinstance(item, str) else (item["text"], item.get("punch", False))
             st = starts[i] + (0.0 if punch else (0.2 if i == 0 else -0.12))
-            en = (starts[i + 1] - 0.02) if i + 1 < n else total
+            en = (starts[i + 1] - 0.02) if i + 1 < n else (total if sid == order[-1] else b - 0.05)
             k = f"end_{sid}_{i}"
             size = 150 if len(text) <= 12 else 116
-            clip(k, "end", st, en - st, f'<span class="line" style="font-size:{round(size * style.get("line_scale", 1))}px">{hl(text)}</span>')
+            clip(k, "end", st, en - st, f'<span class="line" style="font-size:{round(size * style.get("line_scale", 1))}px">{hl(text)}</span>', 2, f' style="top:{s["y"]}px"' if s.get("y") else "")
             if punch:
                 js.append(f'tl.fromTo("#{k} .line", {{ opacity: 0, scale: 1.5 }}, {{ opacity: 1, scale: 1, duration: 0.14, ease: "back.out(2.6)" }}, {r3(st)});')
             else:
                 js.append(f'tl.fromTo("#{k} .line", {{ opacity: 0, y: 30 }}, {{ opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }}, {r3(st + 0.02)});')
-            if i + 1 < n:
+            if i + 1 < n or sid != order[-1]:
                 js.append(f'tl.to("#{k}", {{ opacity: 0, duration: 0.12 }}, {r3(en - 0.13)});')
 
 for i, p in enumerate(spec.get("pops", [])):
@@ -183,6 +184,12 @@ cues = {"total": total, "cues": []}
 for c in spec.get("sfx", []):
     at = resolve(c["at"], rows, total)
     cue = {"sound": c["sound"], "at": at, "vol": c.get("vol", 0.7)}
+    if c["sound"] == "original":
+        # real sound from a source clip, e.g. a meow: {"sound": "original", "src": "C", "from": 8.7, "len": 1.2, "at": "08"}
+        wav = os.path.join(work, f"orig_{len(cues['cues'])}.wav")
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", str(c["from"]), "-t", str(c["len"]), "-i", spec["sources"][c["src"]]["path"],
+                        "-vn", "-ac", "2", "-ar", "48000", "-af", f"highpass=f={c.get('highpass', 220)},afade=t=in:d=0.04,afade=t=out:st={max(c['len'] - 0.12, 0)}:d=0.12", wav], check=True)
+        cue = {"sound": "file", "file": os.path.abspath(wav), "at": at, "vol": c.get("vol", 1.0)}
     if "until" in c:
         cue["len"] = r3(resolve(c["until"], rows, total) - at)
     cues["cues"].append(cue)
